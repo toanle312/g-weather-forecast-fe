@@ -14,7 +14,7 @@ const WeatherPage = () => {
 
   useEffect(() => {
     (async () => {
-      // If city name is different with current location name => fetch new information data
+      // If city name is different from current location name => fetch new information data
       if (cityName !== '' && cityName !== format(currentLocation)) {
         setIsLoading(true);
         const data = await fetchWeatherData(cityName);
