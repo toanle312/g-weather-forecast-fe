@@ -1,9 +1,10 @@
-import { fetchWeatherData } from '@/api';
+import { fetchWeatherData } from '@/apis';
 import WeatherCard from '@/components/weatherCard/WeatherCard';
 import WeatherList from '@/components/weatherList/WeatherList';
 import { AppContext } from '@/context/AppContext';
 import { useContext, useEffect, useState } from 'react';
-import Loading from './loading/Loading';
+import Loading from '../components/loading/Loading';
+import WeatherNotFound from './CityNotFound';
 
 const WeatherPage = () => {
   const { cityName, currentLocation } = useContext(AppContext);
@@ -12,10 +13,12 @@ const WeatherPage = () => {
 
   useEffect(() => {
     (async () => {
-      setIsLoading(true);
-      const data = await fetchWeatherData(cityName);
-      setIsLoading(false);
-      setWeatherData(data);
+      if (cityName !== '') {
+        setIsLoading(true);
+        const data = await fetchWeatherData(cityName);
+        setWeatherData(data);
+        setIsLoading(false);
+      }
     })();
   }, [cityName, currentLocation]);
 
@@ -23,6 +26,8 @@ const WeatherPage = () => {
     <div className='flex flex-col gap-2'>
       {isLoading ? (
         <Loading />
+      ) : weatherData && weatherData.error ? (
+        <WeatherNotFound />
       ) : (
         <>
           <div className='flex flex-col'>

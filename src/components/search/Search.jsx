@@ -23,7 +23,6 @@ const Search = () => {
       fetch(geoApiUrl)
         .then((res) => res.json())
         .then((location) => {
-          localStorage.setItem('currentLocation', location.city);
           changeLocation(location.city);
           changeCityName(location.city);
         });
@@ -31,7 +30,7 @@ const Search = () => {
   };
 
   return (
-    <div className='flex flex-col h-[630px] relative'>
+    <div className='flex flex-col h-[660px] relative'>
       <img
         src={weather}
         alt='weather-image'

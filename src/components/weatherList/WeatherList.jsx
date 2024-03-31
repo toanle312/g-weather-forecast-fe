@@ -1,11 +1,13 @@
+import { useState } from 'react';
 import WeatherCard from '../weatherCard/WeatherCard';
 
 const WeatherList = ({ weatherData }) => {
+  const [isShowMore, setIsShowMore] = useState(false);
   return (
     <div className='flex flex-col'>
       <h1 className='font-[600] text-[42px]'>Daily</h1>
-      <div className='flex gap-[1%] flex-wrap p-5 overflow-auto max-h-[230px] no-scroll-bar relative'>
-        {weatherData?.four_futures.map((data) => (
+      <div className='flex gap-[1%] flex-wrap p-5 overflow-auto max-h-[260px] no-scroll-bar relative'>
+        {weatherData?.four_futures?.map((data) => (
           <div
             key={data.date}
             className='basis-[24%] mb-[2%]'
@@ -16,17 +18,34 @@ const WeatherList = ({ weatherData }) => {
             />
           </div>
         ))}
-        {weatherData?.rest_futures.map((data) => (
-          <div
-            key={data.date}
-            className='basis-[24%] mb-[2%]'
+        {isShowMore ? (
+          <>
+            {weatherData?.rest_futures?.map((data) => (
+              <div
+                key={data.date}
+                className='basis-[24%] mb-[2%]'
+              >
+                <WeatherCard
+                  data={data}
+                  plain
+                />
+              </div>
+            ))}
+            <button
+              className='flex-1 hover:text-[#379DF1]'
+              onClick={() => setIsShowMore((prev) => !prev)}
+            >
+              Hide
+            </button>
+          </>
+        ) : (
+          <button
+            className='flex-1 hover:text-[#379DF1]'
+            onClick={() => setIsShowMore((prev) => !prev)}
           >
-            <WeatherCard
-              data={data}
-              plain
-            />
-          </div>
-        ))}
+            Show More ...
+          </button>
+        )}
       </div>
     </div>
   );

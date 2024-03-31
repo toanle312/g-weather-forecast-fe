@@ -1,5 +1,6 @@
 import './style.css';
 const WeatherCard = ({ data, plain }) => {
+  console.log(data);
   if (plain) {
     return (
       <div className='flex flex-col justify-between items-center p-3 rounded-xl shadow-custom'>

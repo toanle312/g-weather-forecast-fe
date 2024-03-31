@@ -3,10 +3,9 @@ import { createContext, useEffect, useState } from 'react';
 export const AppContext = createContext();
 
 const AppProvier = ({ children }) => {
-  const [currentLocation, setCurrentLocation] = useState(
-    () => localStorage.getItem('currentLocation') || ''
-  );
+  const [currentLocation, setCurrentLocation] = useState('');
   const [cityName, setCityName] = useState('');
+  const [location, setLocation] = useState([]);
 
   const changeLocation = (value) => {
     setCurrentLocation(value);
@@ -23,9 +22,13 @@ const AppProvier = ({ children }) => {
       fetch(geoApiUrl)
         .then((res) => res.json())
         .then((location) => {
-          localStorage.setItem('currentLocation', location.city);
           changeLocation(location.city);
           changeCityName(location.city);
+          setLocation((prev) => [
+            ...prev,
+            position.coords.latitude,
+            position.coords.latitude,
+          ]);
         });
     });
   }, []);
@@ -37,6 +40,7 @@ const AppProvier = ({ children }) => {
         changeLocation,
         cityName,
         changeCityName,
+        location,
       }}
     >
       {children}
