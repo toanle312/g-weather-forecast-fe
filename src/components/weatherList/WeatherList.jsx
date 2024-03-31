@@ -10,7 +10,7 @@ const WeatherList = ({ weatherData }) => {
         {weatherData?.four_futures?.map((data) => (
           <div
             key={data.date}
-            className='basis-[24%] mb-[2%]'
+            className='max-xl:basis-[32%] max-lg:basis-[49%] max-sm:basis-[100%] basis-[24%] mb-[2%]'
           >
             <WeatherCard
               data={data}
@@ -23,7 +23,7 @@ const WeatherList = ({ weatherData }) => {
             {weatherData?.rest_futures?.map((data) => (
               <div
                 key={data.date}
-                className='basis-[24%] mb-[2%]'
+                className='max-xl:basis-[32%] max-lg:basis-[49%] max-sm:basis-[100%] basis-[24%] mb-[2%]'
               >
                 <WeatherCard
                   data={data}

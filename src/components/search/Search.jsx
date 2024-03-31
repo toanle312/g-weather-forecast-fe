@@ -30,7 +30,7 @@ const Search = () => {
   };
 
   return (
-    <div className='flex flex-col h-[660px] relative'>
+    <div className='flex flex-col h-[660px] relative '>
       <img
         src={weather}
         alt='weather-image'
@@ -54,13 +54,15 @@ const Search = () => {
             )}
           </div>
         </div>
-        <div className='flex flex-col gap-10 justify-center items-center min-h-[100%] pb-[100px]'>
-          <span className='text-[32px] leading-4'>G Weather Forecast</span>
+        <div className='flex flex-col gap-5 justify-center items-center min-h-[100%] pb-[100px]'>
+          <span className='text-[32px] text-wrap text-center'>
+            G Weather Forecast
+          </span>
           <div className='w-[150px] h-2 bg-white rounded-full'></div>
-          <div className='flex justify-between items-center gap-2'>
+          <div className='flex justify-between items-center gap-2 mt-5 max-lg:flex-col max-lg:gap-5'>
             <input
               type='text'
-              className='p-2 rounded-[5px] text-white outline-none border-none w-[250px] backdrop-blur-[2px] bg-white/30'
+              className='p-2 rounded-[5px] text-white outline-none border-none w-[250px] backdrop-blur-[2px] bg-white/30 max-lg:p-4'
               value={searchValue}
               onChange={(e) => setSearchValue(e.target.value)}
               onKeyDown={(e) => {
@@ -70,24 +72,24 @@ const Search = () => {
               }}
             />
             <button
-              className='text-[18px] p-2 rounded-[5px] bg-white/20'
+              className='text-[18px] p-2 rounded-[5px] bg-white/20 max-lg:w-full max-lg:flex max-lg:p-4'
               onClick={handleSearch}
               disabled={searchValue === ''}
             >
               <img
                 src={search}
                 alt='search'
-                className='size-6'
+                className='size-6 max-lg:m-auto'
               />
             </button>
             <button
-              className='text-[18px] p-2 rounded-[5px] bg-white/20'
+              className='text-[18px] p-2 rounded-[5px] bg-white/20 max-lg:w-full max-lg:flex max-lg:p-4'
               onClick={handleGetCurrentLocation}
             >
               <img
                 src={gps}
                 alt='gps'
-                className='size-6'
+                className='size-6 max-lg:m-auto'
               />
             </button>
           </div>

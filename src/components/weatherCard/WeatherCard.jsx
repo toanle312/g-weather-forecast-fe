@@ -1,6 +1,5 @@
 import './style.css';
 const WeatherCard = ({ data, plain }) => {
-  console.log(data);
   if (plain) {
     return (
       <div className='flex flex-col justify-between items-center p-3 rounded-xl shadow-custom'>
@@ -8,7 +7,7 @@ const WeatherCard = ({ data, plain }) => {
         <img
           src={data?.condition.icon}
           alt='icon'
-          className='size-16'
+          className='icon size-16'
         />
         <div className='flex flex-col'>
           <p>{`Temp: ${data?.temp}`}&deg;C</p>
@@ -34,7 +33,7 @@ const WeatherCard = ({ data, plain }) => {
           alt='icon'
           className='icon size-16'
         />
-        <p>{data?.condition.text}</p>
+        <p className='text-center'>{data?.condition.text}</p>
       </div>
     </div>
   );
