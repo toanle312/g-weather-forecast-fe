@@ -1,8 +1,35 @@
-# React + Vite
+# G Weather Forcast - FE
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a web developer intern assignment at [Golden Owl](https://goldenowl.asia/)
+![UI](image.png)
 
-Currently, two official plugins are available:
+Link demo: https://g-weather-forecast.vercel.app/weather
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+\*\*\* Note: The first time it will take quite a while, please wait a moment
+
+# How to run this project locally
+
+- Required: Node (20.11.1), npm (10.2.4)
+- Clone this repo to your device and run:
+  ```bash
+    npm i
+  ```
+- Config your `.env`
+
+  ```env
+    VITE_API_ROOT=Your API root // ignore if run in dev mode
+    VITE_LOCAL_API_ROOT=Your local API root
+  ```
+
+- Run project in dev mode:
+  ```bash
+    npm run dev
+  ```
+
+# How to get local API root for this repo
+
+- Visit this link to run BE: https://github.com/toanle312/g-weather-forecast-be
+
+# Author
+
+- [toanle312](https://github.com/toanle312)
