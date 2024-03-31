@@ -1,6 +1,7 @@
 # G Weather Forcast - FE
 
 This is a web developer intern assignment at [Golden Owl](https://goldenowl.asia/)
+
 ![UI](image.png)
 
 Link demo: https://g-weather-forecast.vercel.app/weather
