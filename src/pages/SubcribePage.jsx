@@ -26,7 +26,7 @@ const SubcribePage = () => {
   return (
     <div className='w-full h-[400px] flex flex-col justify-center items-center gap-10'>
       <h1 className='font-bold text-[18px]'>
-        Enter your email to receive daily weather forecast information
+        Enter your email to receive daily weather forecast information at 6AM
       </h1>
       <div className='relative'>
         <input
