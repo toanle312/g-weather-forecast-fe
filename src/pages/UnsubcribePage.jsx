@@ -10,7 +10,7 @@ const UnsubcribePage = () => {
 
   const handleUnSubcribe = async () => {
     setIsLoading(true);
-    const { notice } = await unsubcribe(email);
+    const { notice } = await unsubcribe(email.trim());
     setIsLoading(false);
 
     alert(notice);

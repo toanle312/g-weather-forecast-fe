@@ -13,7 +13,7 @@ const SubcribePage = () => {
   const handleSubcribe = async () => {
     setIsLoading(true);
     const { notice } = await sendMail({
-      email,
+      email: email.trim(),
       location: currentLocation,
       verifiedAt: null,
     });
