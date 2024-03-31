@@ -5,6 +5,7 @@ import gps from '@/assets/gps.png';
 import search from '@/assets/search.png';
 import location from '@/assets/location.png';
 import { AppContext } from '@/context/AppContext';
+import { format } from '@/utils/formatter';
 
 const Search = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -12,7 +13,7 @@ const Search = () => {
     useContext(AppContext);
 
   const handleSearch = () => {
-    changeCityName(searchValue);
+    changeCityName(format(searchValue));
     setSearchValue('');
   };
 

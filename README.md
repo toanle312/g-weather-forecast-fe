@@ -6,7 +6,7 @@ This is a web developer intern assignment at [Golden Owl](https://goldenowl.asia
 
 Link demo: https://g-weather-forecast.vercel.app/weather
 
-\*\*\* Note: The first time it will take quite a while, please wait a moment
+\*\*\* Note: The first time it will take quite a while, please wait a moment (Backend is deployed on [Render](https://render.com/))
 
 # How to run this project locally
 
