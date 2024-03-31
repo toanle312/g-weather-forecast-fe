@@ -25,7 +25,7 @@ const Search = () => {
         .then((res) => res.json())
         .then((location) => {
           changeLocation(location.city);
-          changeCityName(location.city);
+          changeCityName(format(location.city));
         });
     });
   };

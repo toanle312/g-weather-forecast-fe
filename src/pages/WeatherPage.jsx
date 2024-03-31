@@ -5,6 +5,7 @@ import { AppContext } from '@/context/AppContext';
 import { useContext, useEffect, useState } from 'react';
 import Loading from '../components/loading/Loading';
 import WeatherNotFound from './CityNotFound';
+import { format } from '@/utils/formatter';
 
 const WeatherPage = () => {
   const { cityName, currentLocation } = useContext(AppContext);
@@ -13,11 +14,34 @@ const WeatherPage = () => {
 
   useEffect(() => {
     (async () => {
-      if (cityName !== '') {
+      // If city name is different with current location name => fetch new information data
+      if (cityName !== '' && cityName !== format(currentLocation)) {
         setIsLoading(true);
         const data = await fetchWeatherData(cityName);
         setWeatherData(data);
         setIsLoading(false);
+      } else if (cityName === format(currentLocation)) {
+        // if exist temp data for current location, and date is unexpired => Do not need to fetch data again
+        const temp_data = JSON.parse(localStorage.getItem('temp_data'));
+        if (
+          temp_data &&
+          new Date(temp_data.date).toDateString() === new Date().toDateString()
+        ) {
+          setWeatherData(temp_data);
+        } else {
+          // Fetch new data and store as temp_data for current location
+          setIsLoading(true);
+          const data = await fetchWeatherData(cityName);
+          setWeatherData(data);
+          setIsLoading(false);
+          localStorage.setItem(
+            'temp_data',
+            JSON.stringify({
+              ...data,
+              date: new Date(),
+            })
+          );
+        }
       }
     })();
   }, [cityName, currentLocation]);

@@ -1,3 +1,4 @@
+import { format } from '@/utils/formatter';
 import { createContext, useEffect, useState } from 'react';
 
 export const AppContext = createContext();
@@ -5,7 +6,6 @@ export const AppContext = createContext();
 const AppProvier = ({ children }) => {
   const [currentLocation, setCurrentLocation] = useState('');
   const [cityName, setCityName] = useState('');
-  const [location, setLocation] = useState([]);
 
   const changeLocation = (value) => {
     setCurrentLocation(value);
@@ -23,12 +23,7 @@ const AppProvier = ({ children }) => {
         .then((res) => res.json())
         .then((location) => {
           changeLocation(location.city);
-          changeCityName(location.city);
-          setLocation((prev) => [
-            ...prev,
-            position.coords.latitude,
-            position.coords.latitude,
-          ]);
+          changeCityName(format(location.city));
         });
     });
   }, []);
