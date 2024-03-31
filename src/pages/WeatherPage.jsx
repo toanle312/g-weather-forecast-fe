@@ -24,7 +24,7 @@ const WeatherPage = () => {
 
   return (
     <div className='flex flex-col gap-2'>
-      {isLoading ? (
+      {isLoading || !currentLocation ? (
         <Loading />
       ) : weatherData && weatherData.error ? (
         <WeatherNotFound />
