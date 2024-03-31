@@ -31,7 +31,7 @@ const SubcribePage = () => {
       <div className='relative'>
         <input
           type='text'
-          className={`w-[400px] p-5 rounded-md border-solid border-[2px] border-gray-300 outline-none`}
+          className={`max-md:w-[300px] w-[400px] p-5 rounded-md border-solid border-[2px] border-gray-300 outline-none`}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder='Input your email'
@@ -46,7 +46,7 @@ const SubcribePage = () => {
       </div>
       <button
         disabled={!isValidEmail}
-        className='w-[400px] p-5 rounded-md bg-green-500 text-white font-bold'
+        className='max-md:w-[300px] w-[400px] p-5 rounded-md bg-green-500 text-white font-bold'
         onClick={handleSubcribe}
       >
         {isLoading ? 'Loading ...' : 'Subcribe'}
